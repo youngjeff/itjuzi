@@ -48,7 +48,7 @@ class ItjuziSpiderPipeline(object):
             company.company_status=item['company_status']
             company.info_id = item['info_id']
             session.add(company)
-            if len(item['tz_info']):
+             if len(item['tz_info']):
                 for touzi in item['tz_info']:
                     tz = JuziTz()
                     tz.company_id = company.info_id
