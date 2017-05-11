@@ -92,7 +92,7 @@ class ITjuziSpider(RedisCrawlSpider):
                     item['pdt_info'] = pdt_list
     
             
-            print item
+   
             return item
         except Exception, e:
             print e.message        
