@@ -37,8 +37,8 @@ class ITjuziSpider(RedisCrawlSpider):
             item['scope'] = scope_a[0].get_text().strip() if len(scope_a) > 0 else ''
             item['sub_scope'] = scope_a[1].get_text().strip() if len(scope_a) > 1 else ''
             city_a = temp[1].find('span', 'loca c-gray-aset').find_all('a')
-            city_a[0].get_text().strip() if len(city_a) > 0 else ''
-            area = city_a[1].get_text().strip() if len(city_a) > 1 else ''
+            item['city'] = city_a[0].get_text().strip() if len(city_a) > 0 else ''
+            item['area'] = city_a[1].get_text().strip() if len(city_a) > 1 else ''
             item['home_page'] = cpy1.find('div', class_='link-line').find('a', class_='weblink')['href']
 
             item['tags'] = cpy1.find('div', class_='tagset dbi c-gray-aset').get_text().strip().strip().replace('\n',
