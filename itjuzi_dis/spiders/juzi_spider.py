@@ -70,8 +70,8 @@ class ITjuziSpider(RedisCrawlSpider):
                 tz_dict['tz_finades'] = all_td[2].get_text().strip()
                 tz_dict['tz_capital'] = all_td[3].get_text().strip().replace('\n', ',')
                 tz_list.append(tz_dict)
-                item['tz_info'] = tz_list
-                break
+        item['tz_info'] = tz_list
+                
 
         # 团队 team
         tm = main.find('ul', class_='list-prodcase limited-itemnum')
@@ -83,8 +83,9 @@ class ITjuziSpider(RedisCrawlSpider):
                 tm_dict['tm_m_title'] = li.find('span', class_='c-gray').get_text().strip()
                 tm_dict['tm_m_intro'] = li.find('p', class_='mart10 person-des').get_text().strip()
                 tm_list.append(tm_dict)
-                item['tm_info'] = tm_list
-                break
+        
+        item['tm_info'] = tm_list
+                
 
         pdt = main.find('ul', class_='list-prod limited-itemnum')
         pdt_list = []
@@ -95,8 +96,8 @@ class ITjuziSpider(RedisCrawlSpider):
                 pdt_dict['pdt_type'] = li.find('span', class_='tag yellow').get_text().strip()
                 pdt_dict['pdt_intro'] = li.find(class_='on-edit-hide').p.get_text().strip()
                 pdt_list.append(pdt_dict)
-                item['pdt_info'] = pdt_list
-                break
+        item['pdt_info'] = pdt_list
+                
 
         return item
         
