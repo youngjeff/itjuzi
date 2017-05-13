@@ -58,7 +58,7 @@ class ITjuziSpider(RedisCrawlSpider):
         main = soup.find('div', class_='main')
 
         # 投资
-        tz = main.find('table', 'list-round-v2')
+        tz = main.find('table', class_='list-round-v2')
         tz_list = []
         if tz:
             all_tr = tz.find_all('tr')

@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
-url = 'mysql+pymysql://root:123@112.74.187.40/spider_tools?charset=utf8'
+url = 'mysql+pymysql://root:root@52.163.48.238:10101/spider_tools?charset=utf8'
 engine = create_engine(url, echo=False)
 
 
