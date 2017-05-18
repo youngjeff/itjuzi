@@ -60,7 +60,7 @@ DOWNLOADER_MIDDLEWARES = {
     # 'itjuzi_dis.middlewares.ProxyMiddleware': 90,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 100,
     'itjuzi_dis.middlewares.RotateUserAgentMiddleware': 200,
-    'itjuzi_dis.middlewares.ProxyMiddleware': 200,
+    # 'itjuzi_dis.middlewares.ProxyMiddleware': 200,
 }
 
 # Enable or disable extensions
