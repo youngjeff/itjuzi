@@ -59,23 +59,23 @@ class RotateUserAgentMiddleware(UserAgentMiddleware):
     ]
 
 
-class ProxyMiddleware(object):
-    # overwrite process request
-    def process_request(self, request, spider):
-        # Set the location of the proxy
-        cnx = pymysql.connect(host="52.163.48.238", user="root", passwd="root", db="ipproxy", port=10101,charset = "utf8")
-        cur = cnx.cursor()
-        sql = "select ip,port from httpbin"
-        cur.execute(sql)
-        result = cur.fetchall()
-        cur.close()  
-        cnx.commit()  
-        cnx.close()  
-        ip_port = random.choice(result)
-        logging.info(ip_port)
-        request.meta['proxy'] = ("http://%s:%d" % (ip_port[0], ip_port[1]))
-        # # Use the following lines if your proxy requires authentication
-        # proxy_user_pass = "USERNAME:PASSWORD"
-        # # setup basic authentication for the proxy
-        # encoded_user_pass = base64.encodestring(proxy_user_pass)
-        # request.headers['Proxy-Authorization'] = 'Basic ' + encoded_user_pass
+# class ProxyMiddleware(object):
+#     # overwrite process request
+#     def process_request(self, request, spider):
+#         # Set the location of the proxy
+#         cnx = pymysql.connect(host="52.163.48.238", user="root", passwd="root", db="ipproxy", port=10101,charset = "utf8")
+#         cur = cnx.cursor()
+#         sql = "select ip,port from httpbin"
+#         cur.execute(sql)
+#         result = cur.fetchall()
+#         cur.close()  
+#         cnx.commit()  
+#         cnx.close()  
+#         ip_port = random.choice(result)
+#         logging.info(ip_port)
+#         request.meta['proxy'] = ("http://%s:%d" % (ip_port[0], ip_port[1]))
+#         # # Use the following lines if your proxy requires authentication
+#         # proxy_user_pass = "USERNAME:PASSWORD"
+#         # # setup basic authentication for the proxy
+#         # encoded_user_pass = base64.encodestring(proxy_user_pass)
+#         # request.headers['Proxy-Authorization'] = 'Basic ' + encoded_user_pass
