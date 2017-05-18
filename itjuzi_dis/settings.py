@@ -107,4 +107,4 @@ DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 # REDIS_START_URLS_AS_SET = True
 
-REDIS_PARAMS = {'host':'redis','decode_responses':False}
+REDIS_PARAMS = {'host':'52.163.48.238','port':10102,'decode_responses':False}

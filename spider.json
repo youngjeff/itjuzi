@@ -1,0 +1,30 @@
+{
+  "id": "/spider",
+  "cmd": null,
+  "cpus": 1,
+  "mem": 128,
+  "disk": 0,
+  "instances": 1,
+  "executor": null,
+  "fetch": null,
+  "constraints": null,
+  "acceptedResourceRoles": null,
+  "user": null,
+  "container": {
+    "docker": {
+      "image": "docker.dcos.demo01.nlabs.sg/spider",
+      "forcePullImage": false,
+      "privileged": false,
+      "network": "HOST"
+    }
+  },
+  "labels": null,
+  "healthChecks": null,
+  "env": null,
+  "portDefinitions": [
+    {
+      "protocol": "tcp",
+      "port": 0
+    }
+  ]
+}
