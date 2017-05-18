@@ -18,8 +18,7 @@ class RotateUserAgentMiddleware(UserAgentMiddleware):
         if ua:
             logging.info(ua)
             request.headers.setdefault('User-Agent', ua)
-
-    # the default user_agent_list composes chrome,I E,firefox,Mozilla,opera,netscape
+            request.headers['host']= 'www.itjuzi.com'     # the default user_agent_list composes chrome,I E,firefox,Mozilla,opera,netscape
     # for more user agent strings,you can find it in http://www.useragentstring.com/pages/useragentstring.php
     user_agent_list = [
         "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
@@ -66,7 +65,7 @@ class ProxyMiddleware(object):
         # Set the location of the proxy
         cnx = pymysql.connect(host="52.163.48.238", user="root", passwd="root", db="ipproxy", port=10101,charset = "utf8")
         cur = cnx.cursor()
-        sql = "select ip,port from free_ipproxy"
+        sql = "select ip,port from httpbin"
         cur.execute(sql)
         result = cur.fetchall()
         cur.close()  
